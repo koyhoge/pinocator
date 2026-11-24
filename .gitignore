@@ -1,0 +1,14 @@
+# SwiftPM
+.build/
+.swiftpm/
+
+# Build output (scripts/make_app.sh)
+build/
+
+# Xcode user state
+xcuserdata/
+*.xcuserstate
+DerivedData/
+
+# macOS
+.DS_Store
