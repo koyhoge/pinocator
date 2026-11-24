@@ -47,6 +47,9 @@ open build/Pinocator.app  # メニューバーに ◎ が出れば起動成功
 - `Geometry.swift` — プラットフォーム非依存の計算（auto 半径、収束
   半径・透明度、8方位矢印）。Foundation のみで、Linux でもテスト可能
 - `Tests/GeometryTests/main.swift` — Geometry の単体テスト
+- `Resources/AppIcon.iconset/` — アプリアイコン
+  （生成は `scripts/make_icon.py`、要 Pillow。make_app.sh が
+  iconutil で .icns 化してバンドルに入れる）
 
 ## テスト
 
@@ -61,7 +64,7 @@ swiftc Sources/Pinocator/Geometry.swift Tests/GeometryTests/main.swift -o /tmp/g
 
 - メニューの「今すぐ表示」に表示されるキー名は起動時点のもの
   （ホットキーを変えても表記が追従しない。実害はなし）
-- アプリアイコンなし、ログイン時起動なし
+- ログイン時起動なし
 - Mac 実機でビルドと動作を確認済み（2026-11-24、SpaceWalker の
   仮想画面を含むマルチスクリーンでも動作）。開発 VM（Linux）では
   Swift 6.4.3 で全ファイルの構文チェック（swiftc -parse）と

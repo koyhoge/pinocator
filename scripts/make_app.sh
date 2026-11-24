@@ -10,6 +10,8 @@ rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
 cp ".build/release/Pinocator" "$APP/Contents/MacOS/Pinocator"
 cp "Resources/Info.plist" "$APP/Contents/Info.plist"
+# アイコン（iconset は scripts/make_icon.py で生成した PNG 一式）
+iconutil -c icns "Resources/AppIcon.iconset" -o "$APP/Contents/Resources/AppIcon.icns"
 
 codesign --force --sign - "$APP"
 echo "Built: $APP"
