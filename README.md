@@ -17,6 +17,9 @@ cd Pinocator
 open build/Pinocator.app  # success = "◎" appears in the menu bar
 ```
 
+For a release zip (to attach to a GitHub Release), run
+`./scripts/release.sh` — it writes `build/Pinocator-<version>.zip`.
+
 During development, `swift run` also works (still a menu-bar app).
 
 ## Usage

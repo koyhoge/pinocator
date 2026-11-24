@@ -15,6 +15,9 @@ cd Pinocator
 open build/Pinocator.app  # メニューバーに ◎ が出れば起動成功
 ```
 
+リリース用 zip（GitHub Release 添付用）は `./scripts/release.sh` で
+作れます（`build/Pinocator-<version>.zip`）。
+
 開発中は `swift run` でも起動できる（その場合もメニューバー常駐になる）。
 
 ## 使い方
