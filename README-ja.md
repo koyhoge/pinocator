@@ -5,6 +5,9 @@
 Hammerspoon 版プロトタイプで確定した仕様の Swift 移植。設計の詳細は
 [SPEC.md](SPEC.md) を参照。英語版は [README.md](README.md)。
 
+UI は英語・日本語に対応し、システムの言語設定に従います
+（対応言語以外では英語になります）。
+
 ## ビルドと実行（Mac）
 
 前提: macOS 13 以降、Xcode または Command Line Tools（Swift 5.9+）。

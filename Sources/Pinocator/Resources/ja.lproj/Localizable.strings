@@ -1,0 +1,34 @@
+/* Pinocator UI strings (Japanese) */
+
+"menu.show_now" = "今すぐ表示（%@）";
+"menu.settings" = "設定…";
+"menu.quit" = "Pinocator を終了";
+"settings.window_title" = "Pinocator 設定";
+
+"section.hotkey" = "ホットキー";
+"settings.trigger_key" = "表示キー";
+"settings.hotkey_hint" = "クリックしてから使いたいキーを押します。変更は即時反映されます。";
+
+"section.animation" = "アニメーション";
+"settings.mode" = "モード";
+"mode.global" = "global（全画面に本物の円）";
+"mode.hint" = "hint（矢印＋画面名バッジ）";
+"mode.mirror" = "mirror（相対位置を写す）";
+"mode.none" = "none（カーソルの画面だけ）";
+"settings.ring_duration" = "1つの円の時間";
+"format.seconds" = "%.2f 秒";
+"settings.ring_count" = "円の数";
+"settings.ring_delay" = "円ごとの遅延";
+"settings.stroke_width" = "線の太さ";
+"settings.ring_color" = "円の色";
+"settings.glass_style" = "ガラス風の見た目（光沢とハイライト）";
+"format.total_length" = "全体の長さ: 約 %.1f 秒";
+
+"section.start_radius" = "開始半径";
+"settings.radius_auto" = "auto（画面配置全体が入る大きさ）";
+"settings.radius_fixed" = "固定半径";
+"settings.end_radius" = "収束先の半径";
+
+"settings.version" = "バージョン";
+
+"recorder.press_key" = "キーを押してください…（Escで取消）";

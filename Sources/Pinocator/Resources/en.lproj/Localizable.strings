@@ -1,0 +1,34 @@
+/* Pinocator UI strings (English) */
+
+"menu.show_now" = "Show Now (%@)";
+"menu.settings" = "Settings…";
+"menu.quit" = "Quit Pinocator";
+"settings.window_title" = "Pinocator Settings";
+
+"section.hotkey" = "Hotkey";
+"settings.trigger_key" = "Trigger Key";
+"settings.hotkey_hint" = "Click, then press the key you want. Changes apply immediately.";
+
+"section.animation" = "Animation";
+"settings.mode" = "Mode";
+"mode.global" = "Global (real circles on all screens)";
+"mode.hint" = "Hint (arrow + screen-name badge)";
+"mode.mirror" = "Mirror (relative position)";
+"mode.none" = "None (cursor screen only)";
+"settings.ring_duration" = "Ring Duration";
+"format.seconds" = "%.2f s";
+"settings.ring_count" = "Number of Rings";
+"settings.ring_delay" = "Delay Between Rings";
+"settings.stroke_width" = "Stroke Width";
+"settings.ring_color" = "Ring Color";
+"settings.glass_style" = "Glass-style Look (gloss and highlights)";
+"format.total_length" = "Total length: about %.1f s";
+
+"section.start_radius" = "Start Radius";
+"settings.radius_auto" = "Auto (covers the whole display arrangement)";
+"settings.radius_fixed" = "Fixed Radius";
+"settings.end_radius" = "End Radius";
+
+"settings.version" = "Version";
+
+"recorder.press_key" = "Press a key… (Esc to cancel)";

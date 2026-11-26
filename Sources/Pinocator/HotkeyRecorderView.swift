@@ -34,7 +34,7 @@ final class RecorderButton: NSButton {
     @objc func beginRecording() {
         guard !isRecording else { return }
         isRecording = true
-        title = "キーを押してください…（Escで取消）"
+        title = L10n.t("recorder.press_key")
         monitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event in
             self?.handle(event)
             return nil

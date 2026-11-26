@@ -11,10 +11,10 @@ enum DisplayMode: String, CaseIterable, Identifiable {
 
     var label: String {
         switch self {
-        case .global: return "global（全画面に本物の円）"
-        case .hint:   return "hint（矢印＋画面名バッジ）"
-        case .mirror: return "mirror（相対位置を写す）"
-        case .none:   return "none（カーソルの画面だけ）"
+        case .global: return L10n.t("mode.global")
+        case .hint:   return L10n.t("mode.hint")
+        case .mirror: return L10n.t("mode.mirror")
+        case .none:   return L10n.t("mode.none")
         }
     }
 }

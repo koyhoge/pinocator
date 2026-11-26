@@ -3,7 +3,7 @@ import SwiftUI
 struct SettingsView: View {
     @ObservedObject var settings = SettingsStore.shared
 
-    /// Info.plist のバージョン表記（例: "0.1.0"）
+    /// Info.plist のバージョン表記（例: "0.2.0"）
     private var versionString: String {
         Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "—"
     }
@@ -31,88 +31,114 @@ struct SettingsView: View {
 
     var body: some View {
         Form {
-            Section("ホットキー") {
+            Section {
                 HStack {
-                    Text("表示キー")
+                    Text(L10n.t("settings.trigger_key"))
                     Spacer()
                     HotkeyRecorderView(settings: settings)
                         .frame(width: 220)
                 }
-                Text("クリックしてから使いたいキーを押します。変更は即時反映されます。")
+                Text(L10n.t("settings.hotkey_hint"))
                     .font(.caption)
                     .foregroundStyle(.secondary)
+            } header: {
+                Text(L10n.t("section.hotkey"))
             }
 
-            Section("アニメーション") {
-                Picker("モード", selection: $settings.mode) {
+            Section {
+                Picker(selection: $settings.mode) {
                     ForEach(DisplayMode.allCases) { mode in
                         Text(mode.label).tag(mode)
                     }
+                } label: {
+                    Text(L10n.t("settings.mode"))
                 }
-                LabeledContent("1つの円の時間") {
+                LabeledContent {
                     HStack {
                         ModernSlider(value: $settings.duration, range: 0.2...2.0, step: 0.05)
-                        Text(String(format: "%.2f 秒", settings.duration))
+                        Text(L10n.t("format.seconds", settings.duration))
                             .monospacedDigit()
                             .frame(width: 60, alignment: .trailing)
                     }
+                } label: {
+                    Text(L10n.t("settings.ring_duration"))
                 }
-                LabeledContent("円の数") {
+                LabeledContent {
                     HStack {
                         ModernSlider(value: ringCountBinding, range: 1...10, step: 1)
                         Text("\(settings.ringCount)")
                             .monospacedDigit()
                             .frame(width: 60, alignment: .trailing)
                     }
+                } label: {
+                    Text(L10n.t("settings.ring_count"))
                 }
-                LabeledContent("円ごとの遅延") {
+                LabeledContent {
                     HStack {
                         ModernSlider(value: $settings.ringDelay, range: 0...0.6, step: 0.05)
-                        Text(String(format: "%.2f 秒", settings.ringDelay))
+                        Text(L10n.t("format.seconds", settings.ringDelay))
                             .monospacedDigit()
                             .frame(width: 60, alignment: .trailing)
                     }
+                } label: {
+                    Text(L10n.t("settings.ring_delay"))
                 }
-                LabeledContent("線の太さ") {
+                LabeledContent {
                     HStack {
                         ModernSlider(value: $settings.strokeWidth, range: 1...20, step: 1)
                         Text("\(Int(settings.strokeWidth)) pt")
                             .monospacedDigit()
                             .frame(width: 60, alignment: .trailing)
                     }
+                } label: {
+                    Text(L10n.t("settings.stroke_width"))
                 }
-                ColorPicker("円の色", selection: colorBinding, supportsOpacity: false)
-                Toggle("ガラス風の見た目（光沢とハイライト）", isOn: $settings.glassStyle)
-                Text(String(format: "全体の長さ: 約 %.1f 秒", settings.totalDuration))
+                ColorPicker(selection: colorBinding, supportsOpacity: false) {
+                    Text(L10n.t("settings.ring_color"))
+                }
+                Toggle(isOn: $settings.glassStyle) {
+                    Text(L10n.t("settings.glass_style"))
+                }
+                Text(L10n.t("format.total_length", settings.totalDuration))
                     .font(.caption)
                     .foregroundStyle(.secondary)
+            } header: {
+                Text(L10n.t("section.animation"))
             }
 
-            Section("開始半径") {
-                Toggle("auto（画面配置全体が入る大きさ）", isOn: $settings.startRadiusAuto)
+            Section {
+                Toggle(isOn: $settings.startRadiusAuto) {
+                    Text(L10n.t("settings.radius_auto"))
+                }
                 if !settings.startRadiusAuto {
-                    LabeledContent("固定半径") {
+                    LabeledContent {
                         HStack {
                             ModernSlider(value: $settings.startRadius, range: 100...3000, step: 50)
                             Text("\(Int(settings.startRadius)) pt")
                                 .monospacedDigit()
                                 .frame(width: 70, alignment: .trailing)
                         }
+                    } label: {
+                        Text(L10n.t("settings.radius_fixed"))
                     }
                 }
-                LabeledContent("収束先の半径") {
+                LabeledContent {
                     HStack {
                         ModernSlider(value: $settings.endRadius, range: 0...50, step: 1)
                         Text("\(Int(settings.endRadius)) pt")
                             .monospacedDigit()
                             .frame(width: 60, alignment: .trailing)
                     }
+                } label: {
+                    Text(L10n.t("settings.end_radius"))
                 }
+            } header: {
+                Text(L10n.t("section.start_radius"))
             }
 
             Section {
                 HStack {
-                    Text("バージョン")
+                    Text(L10n.t("settings.version"))
                     Spacer()
                     Text(versionString)
                         .foregroundStyle(.secondary)

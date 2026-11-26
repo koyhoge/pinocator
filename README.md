@@ -6,6 +6,9 @@ continuous animation. A Swift port of the design settled with the
 Hammerspoon prototype. See [SPEC.md](SPEC.md) for the design details.
 Japanese version: [README-ja.md](README-ja.md).
 
+The interface is available in English and Japanese and follows the
+system language (other languages fall back to English).
+
 ## Build and run (Mac)
 
 Requirements: macOS 13 or later, Xcode or the Command Line Tools

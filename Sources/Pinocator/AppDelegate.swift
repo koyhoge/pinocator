@@ -34,13 +34,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         item.button?.toolTip = "Pinocator"
 
         let menu = NSMenu()
-        menu.addItem(NSMenuItem(title: "今すぐ表示（\(settings.hotkeyLabel)）",
+        menu.addItem(NSMenuItem(title: L10n.t("menu.show_now", settings.hotkeyLabel),
                                 action: #selector(triggerFromMenu), keyEquivalent: ""))
         menu.addItem(.separator())
-        menu.addItem(NSMenuItem(title: "設定…",
+        menu.addItem(NSMenuItem(title: L10n.t("menu.settings"),
                                 action: #selector(openSettings), keyEquivalent: ","))
         menu.addItem(.separator())
-        menu.addItem(NSMenuItem(title: "Pinocator を終了",
+        menu.addItem(NSMenuItem(title: L10n.t("menu.quit"),
                                 action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q"))
         for menuItem in menu.items { menuItem.target = self }
         menu.items.last?.target = nil  // 終了だけは NSApp 直通に戻す
@@ -58,7 +58,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                 contentRect: NSRect(x: 0, y: 0, width: 480, height: 560),
                 styleMask: [.titled, .closable],
                 backing: .buffered, defer: false)
-            window.title = "Pinocator 設定"
+            window.title = L10n.t("settings.window_title")
             window.contentViewController = NSHostingController(rootView: SettingsView())
             // ホスティング側の測定サイズが 0 だとタイトルバーだけの
             // ウィンドウになるので、明示的にサイズを戻す
